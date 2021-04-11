@@ -1,0 +1,21 @@
+package com.example.cm.dao
+
+import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.example.cm.entities.Nota
+
+@Dao
+interface NotaDao {
+    @Query("SELECT * from nota_tabela")
+    fun getNotas(): LiveData<List<Nota>>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insert(nota: Nota)
+
+    @Query("DELETE FROM nota_tabela")
+    suspend fun deleteAll()
+
+}

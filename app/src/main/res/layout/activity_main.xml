@@ -30,13 +30,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
+            android:id="@+id/notasButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10px"
             android:paddingHorizontal="185px"
             android:paddingVertical="30px"
             android:text="Notas"
-            android:textSize="20sp" />
+            android:textSize="20sp"/>
 
         <Button
             android:layout_width="match_parent"
@@ -46,7 +47,5 @@
             android:text="Mapa"
             android:textSize="20sp" />
 
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

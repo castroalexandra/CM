@@ -51,4 +51,9 @@ class NotasActivity : AppCompatActivity() {
         val notasViewModel: NotaViewModel = ViewModelProvider(this).get(NotaViewModel::class.java)
         notasViewModel.insert(nota)
     }
+
+    fun deleteNota(id: Int){
+        val notasViewModel: NotaViewModel = ViewModelProvider(this).get(NotaViewModel::class.java)
+        notasViewModel.deleteNota(id)
+    }
 }

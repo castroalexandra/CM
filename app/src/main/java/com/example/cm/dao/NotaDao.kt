@@ -1,10 +1,7 @@
 package com.example.cm.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.cm.entities.Nota
 
 @Dao
@@ -17,5 +14,11 @@ interface NotaDao {
 
     @Query("DELETE FROM nota_tabela")
     suspend fun deleteAll()
+
+    @Query("DELETE FROM nota_tabela where id == :idNota")
+    suspend fun deleteNota(idNota: Int)
+
+    @Query("UPDATE nota_tabela SET conteudo=:conteudo WHERE id == :idNota")
+    suspend fun updateNota(idNota: Int, conteudo: String)
 
 }

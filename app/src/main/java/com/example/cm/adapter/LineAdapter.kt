@@ -1,11 +1,14 @@
 package com.example.cm.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cm.NotasActivity
 import com.example.cm.R
 import com.example.cm.entities.Nota
 
@@ -60,12 +63,16 @@ class LineAdapter internal constructor(
 ) : RecyclerView.Adapter<LineAdapter.LineViewHolder>(){
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var notas = emptyList<Nota>()
+    val ctx = context
 
     class LineViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView){
 
         val titulo = itemView.findViewById<TextView>(R.id.notaTitulo)
         val conteudo = itemView.findViewById<TextView>(R.id.notaConteudo)
         val data = itemView.findViewById<TextView>(R.id.notaData)
+        val apagar = itemView.findViewById<ImageButton>(R.id.apagarBtn)
+        val editar = itemView.findViewById<ImageButton>(R.id.editarBtn)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LineViewHolder {
@@ -80,6 +87,16 @@ class LineAdapter internal constructor(
         holder.titulo.text = current.titulo
         holder.conteudo.text = current.conteudo
         holder.data.text = current.data
+
+        val cona = ctx as NotasActivity
+
+        holder.apagar.setOnClickListener {
+            cona.deleteNota(current.id!!)
+        }
+
+        holder.editar.setOnClickListener {
+            Log.e("cona", "position")
+        }
 
     }
     internal fun setNotas (notas: List<Nota>){

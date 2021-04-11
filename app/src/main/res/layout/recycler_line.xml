@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="opsijdf"
-            android:layout_below="@+id/notaTitulo"
+            android:layout_below="@+id/apagarBtn"
             android:layout_marginHorizontal="12dp"/>
 
         <TextView
@@ -25,9 +25,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="10/10/10"
-            android:layout_below="@+id/notaTitulo"
-            android:layout_alignParentRight="true"
-            android:layout_marginHorizontal="12dp"/>
+            android:layout_alignLeft="@+id/editarBtn"
+            android:layout_alignRight="@+id/apagarBtn"
+            android:gravity="center"
+            android:layout_below="@+id/apagarBtn"/>
+
+    <ImageButton
+        android:id="@+id/apagarBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#F81400"
+        android:src="@drawable/ic_baseline_delete_24"
+        android:layout_alignParentRight="true"/>
+
+    <ImageButton
+        android:id="@+id/editarBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2196F3"
+        android:src="@drawable/ic_baseline_edit_24"
+        android:layout_toLeftOf="@+id/apagarBtn"/>
 
     <View
         android:layout_width="match_parent"

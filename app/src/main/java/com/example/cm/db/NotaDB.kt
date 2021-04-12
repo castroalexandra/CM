@@ -23,7 +23,6 @@ public abstract class NotaDB : RoomDatabase() {
                 INSTANCE?.let{ database ->
                     scope.launch {
                         var notaDao = database.notaDao()
-                        notaDao.deleteAll()
                     }
 
                 }

@@ -56,4 +56,10 @@ class NotasActivity : AppCompatActivity() {
         val notasViewModel: NotaViewModel = ViewModelProvider(this).get(NotaViewModel::class.java)
         notasViewModel.deleteNota(id)
     }
+
+    fun editNota(id: Int, conteudo: String, titulo: String){
+        Log.e("a criar nota", "cona")
+        val notasViewModel: NotaViewModel = ViewModelProvider(this).get(NotaViewModel::class.java)
+        notasViewModel.updateNota(id, conteudo, titulo)
+    }
 }

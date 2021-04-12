@@ -1,16 +1,21 @@
 package com.example.cm.adapter
 
+import android.R.attr.fragment
 import android.content.Context
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cm.EditaNotaFragment
 import com.example.cm.NotasActivity
 import com.example.cm.R
 import com.example.cm.entities.Nota
+
 
 /*import android.util.Log
 import android.view.LayoutInflater
@@ -63,7 +68,7 @@ class LineAdapter internal constructor(
 ) : RecyclerView.Adapter<LineAdapter.LineViewHolder>(){
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var notas = emptyList<Nota>()
-    val ctx = context
+    val ctx = context as NotasActivity
 
     class LineViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView){
 
@@ -88,14 +93,22 @@ class LineAdapter internal constructor(
         holder.conteudo.text = current.conteudo
         holder.data.text = current.data
 
-        val cona = ctx as NotasActivity
-
         holder.apagar.setOnClickListener {
-            cona.deleteNota(current.id!!)
+            ctx.deleteNota(current.id!!)
         }
 
         holder.editar.setOnClickListener {
-            Log.e("cona", "position")
+            val testString : String = "example only"
+            var bundle = Bundle()
+            bundle.putInt("id", current.id!!)
+            bundle.putString("titulo", current.titulo)
+            bundle.putString("conteudo", current.conteudo)
+            Log.e("id", (current.id).toString())
+            Log.e("titulo", current.titulo)
+            Log.e("conteudo", current.conteudo)
+            var frag = EditaNotaFragment()
+            frag.arguments = bundle
+            ctx.changeFragment(frag)
         }
 
     }
